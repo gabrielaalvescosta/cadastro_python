@@ -77,7 +77,7 @@ def cad_candidato():
     area_can = int(input("Qual a sua área: "))
     
     if name_can is not None and email_can is not None and area_can is not None:
-        print("\nSEUS DADOS: \nId: " + str(id_can) + "\nnNome: " + name_can + "\nEmail: " + email_can + "\nÁrea: " + str(area_can))
+        print("\nSEUS DADOS: \nId: " + str(id_can) + "\nNome: " + name_can + "\nEmail: " + email_can + "\nÁrea: " + str(area_can))
         print(str("\nDigite: \n(1) Confirmar \n(2) Corrigir\n"))
         conf_corr = int(input("RESPONDA -> "))
         if conf_corr == 1:
@@ -111,7 +111,7 @@ def lista_cadastro():
             print("Nenhum candidato foi cadastrado.")
             welcome_system()
 
-# Enquanto o usuário nao escolher a opcao 5, ele nao saira do sistema
+# Enquanto o usuário nao escolher a opcao 4, ele nao saira do sistema
 def choose_number():
     option = int(input("Digite o número: "))
     if option == 1:
@@ -121,7 +121,7 @@ def choose_number():
     elif option == 3:
         lista_cadastro()
     elif option == 4:
-        iniciar = int(input("Sistema finalizado. Para iniciar novamente, tecle 1"))
+        iniciar = int(input("Sistema finalizado. Para iniciar novamente, tecle 1\n"))
         if iniciar == 1:
             welcome_system()
     else:
