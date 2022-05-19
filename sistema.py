@@ -11,9 +11,8 @@ welcome_text = """
 Seja bem vindo(a)! Escolha uma das opções abaixo para iniciar:
 (1) Cadastro de recrutador
 (2) Cadastro de candidato
-(3) Verificar cadastro
-(4) Deletar cadastro
-(5) Sair
+(3) Verificar cadastros
+(4) Sair
 """
 
 # Area de atuacao CANDIDATO
@@ -54,14 +53,14 @@ def cad_recruiter():
     area_rec = str(input("Qual a área: "))
 
     if name_rec is not None and email_rec is not None and area_rec is not None:
-        print("\nSEUS DADOS: \n Id: " + str(id_rec) + "\nnNome: " + name_rec + "\nEmail: " + email_rec + "\nÁrea: " + str(area_rec))
+        print("\nSEUS DADOS: \nId: " + str(id_rec) + "\nnNome: " + name_rec + "\nEmail: " + email_rec + "\nÁrea: " + str(area_rec))
         print(str("\nDigite: \n(1) Confirmar \n(2) Corrigir\n"))
         conf_corr = int(input("RESPONDA -> "))
         if conf_corr == 1:
             recruiters.append((id_rec, name_rec, email_rec, area_rec))
             print("Recrutador cadastrado com sucesso.")
             welcome_system()
-        elif conf_corr == 2:
+        else:
             print(str("Corrija o seu cadastro:"))
             cad_recruiter()
     else:
@@ -78,12 +77,12 @@ def cad_candidato():
     area_can = int(input("Qual a sua área: "))
     
     if name_can is not None and email_can is not None and area_can is not None:
-        print("\nSEUS DADOS: \n Id: " + str(id_can) + "\nnNome: " + name_can + "\nEmail: " + email_can + "\nÁrea: " + str(area_can))
+        print("\nSEUS DADOS: \nId: " + str(id_can) + "\nnNome: " + name_can + "\nEmail: " + email_can + "\nÁrea: " + str(area_can))
         print(str("\nDigite: \n(1) Confirmar \n(2) Corrigir\n"))
         conf_corr = int(input("RESPONDA -> "))
         if conf_corr == 1:
             recruiters.append((id_can, name_can, email_can, area_can))
-            print("Usuário cadastrado com sucesso.")
+            print("Candidato cadastrado com sucesso.")
             welcome_system()
         elif conf_corr == 2:
             print(str("Corrija o seu cadastro:"))
@@ -92,14 +91,25 @@ def cad_candidato():
         print(str("Cadastro não realizado. Todas as opções são obrigatórias"))
         cad_candidato()
 
-
+# Listar usuarios 
 def lista_cadastro():
-    listar = int(input("Voce é \n(1) Recrutador \n(2) Candidato"))
+    listar = int(input("Voce é \n(1) Recrutador \n(2) Candidato \n"))
     if listar == 1:
-        print("CADASTRO de Recrutadores")
+        print("Recrutadores cadastrados:")
+        if len(recruiters) != 0:
+            for i in recruiters:
+                print(i)
+        else:
+            print("Nenhum recrutador foi cadastrado.")
+            welcome_system()
     else:
-        print("CADASTRO de Usuários")
-
+        if len(candidatos) != 0:
+            print("Usuários casatrados:")
+            for j in candidatos:
+                print(j)
+        else:
+            print("Nenhum candidato foi cadastrado.")
+            welcome_system()
 
 # Enquanto o usuário nao escolher a opcao 5, ele nao saira do sistema
 def choose_number():
@@ -110,6 +120,12 @@ def choose_number():
         cad_candidato()
     elif option == 3:
         lista_cadastro()
+    elif option == 4:
+        iniciar = int(input("Sistema finalizado. Para iniciar novamente, tecle 1"))
+        if iniciar == 1:
+            welcome_system()
+    else:
+        print("Opcao inválida. Escolha entre 1 a 4")
 
 
 # Mostra as opcoes na tela e chama funcao de escolher o numero
