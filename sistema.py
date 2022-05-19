@@ -35,7 +35,7 @@ Qual é sua área de recrutamento? Digite o número correspondente a área:
 (5) Outra área
 """
 
-# Tupla de recruiters e candidatos
+# Array para tupla de recruiters e candidatos
 recruiters = []
 candidatos = []
 
