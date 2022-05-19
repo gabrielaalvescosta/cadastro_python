@@ -59,7 +59,7 @@ def cad_candidato():
     name_can = str(input("Digite o seu nome completo: "))
     email_can = str(input("Digite o seu email: "))
     print(str(atuacao_can))
-    area_can = i(input("Qual a sua área: "))
+    area_can = int(input("Qual a sua área: "))
     
     if name_can is not None and email_can is not None and area_can is not None:
         print("\nSEUS DADOS: \n Id: " + str(id_can) + "\nnNome: " + name_can + "\nEmail: " + email_can + "\nÁrea: " + str(area_can))
