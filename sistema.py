@@ -47,10 +47,26 @@ def confirma():
 # Funcao de cadastro do recrutador
 def cad_recruiter():
     print(str("Bem-vindo, recrutador!"))
+    id_rec = int(input("Id: "))
     name_rec = str(input("Digite o seu nome completo: "))
     email_rec = str(input("Digite o seu email: "))
     print(str(atuacao_rec))
     area_rec = str(input("Qual a área: "))
+
+    if name_rec is not None and email_rec is not None and area_rec is not None:
+        print("\nSEUS DADOS: \n Id: " + str(id_rec) + "\nnNome: " + name_rec + "\nEmail: " + email_rec + "\nÁrea: " + str(area_rec))
+        print(str("\nDigite: \n(1) Confirmar \n(2) Corrigir\n"))
+        conf_corr = int(input("RESPONDA -> "))
+        if conf_corr == 1:
+            recruiters.append((id_rec, name_rec, email_rec, area_rec))
+            print("Recrutador cadastrado com sucesso.")
+            welcome_system()
+        elif conf_corr == 2:
+            print(str("Corrija o seu cadastro:"))
+            cad_recruiter()
+    else:
+        print(str("Cadastro não realizado. Todas as opções são obrigatórias"))
+        cad_recruiter()
     
 # Funcao de cadastro do candidato
 def cad_candidato():
@@ -76,6 +92,15 @@ def cad_candidato():
         print(str("Cadastro não realizado. Todas as opções são obrigatórias"))
         cad_candidato()
 
+
+def lista_cadastro():
+    listar = int(input("Voce é \n(1) Recrutador \n(2) Candidato"))
+    if listar == 1:
+        print("CADASTRO de Recrutadores")
+    else:
+        print("CADASTRO de Usuários")
+
+
 # Enquanto o usuário nao escolher a opcao 5, ele nao saira do sistema
 def choose_number():
     option = int(input("Digite o número: "))
@@ -83,6 +108,8 @@ def choose_number():
         cad_recruiter()
     elif option == 2:
         cad_candidato()
+    elif option == 3:
+        lista_cadastro()
 
 
 # Mostra as opcoes na tela e chama funcao de escolher o numero
